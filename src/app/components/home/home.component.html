@@ -4,6 +4,8 @@
   </section>
 </header>
 
+<button mat-button (click)="openGlassSnackbar()">Mostrar Notificação</button>
+
 <section id="text">
   <div>
     <h2 id="title1">Bem-vindo à Votação do Oscar 2025!</h2>
@@ -36,7 +38,7 @@
 }
 
 <section id="votar">
-  <button id="btnV" (click)="votar()">Teste</button>
+  <button id="btnV" (click)="votar()">Votar</button>
 </section>
 
 @if(showPopupVote){
@@ -49,20 +51,24 @@
       </option>
       }
     </select>
-    @if (selectedMovieV) {
-    <div class="images-block">
-      <img [src]="selectedMovieV.src" [alt]="selectedMovieV.alt" style="width: 300px;">
+    <div>
+      @if (selectedMovieV) {
+      <div id="images-vote">
+        <img [src]="selectedMovieV.src" [alt]="selectedMovieV.alt">
+      </div>
+      }
     </div>
-    }
     <input [(ngModel)]="email" type="text" placeholder="Digite seu e-mail">
     <br>
     <textarea id="campoTexto" [(ngModel)]="critica" rows="5" cols="50"
       placeholder="Escreva aqui a sua crítica..."></textarea>
-      <br>
+    <br>
+    <div class="button-container">
       <button id="btnVote" (click)="voto()">Votar</button>
       <button id="btnClose" (click)="closePopup()">Voltar</button>
+    </div>
   </div>
-</div>
+</div>c
 }
 
 <footer>

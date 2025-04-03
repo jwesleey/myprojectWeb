@@ -1,7 +1,9 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule} from '@angular/common';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 @Component({
   selector: 'app-home',
@@ -24,12 +26,15 @@ export class HomeComponent {
     { src: '/assets/images/Nickel_Boys.jpg', alt: 'Poster do filme Nickel Boys', title: 'Nickel Boys', description: 'Um drama sobre injustiça.', year: '2025' }
   ];
 
+
   showPopup = false;
   showPopupVote = false;
   selectedMovie: any = null;
   selectedMovieV: any = null;
   email!: string;
   critica!: string;
+
+
 
 
   openPopup(movie: any) {
@@ -52,18 +57,18 @@ export class HomeComponent {
   voto() {
     this.showPopupVote = true;
 
-    if (this.email.trim() === "" || this.critica.trim() === "") {
+    /*if (this.email.trim() === "" || this.critica.trim() === "") {
       this.mostrarSweetAlertErro();
     } else {
       this.mostrarSweetAlert();
-    }
+    }*/
   }
 
   votar() {
     this.showPopupVote = true;
   }
 
-  mostrarSweetAlert() {
+  /*mostrarSweetAlert() {
     Swal.fire({
       title: 'Operação realizada!',
       text: 'Você completou a ação com sucesso.',
@@ -79,5 +84,16 @@ export class HomeComponent {
       icon: 'error',
       confirmButtonText: 'Ok',
     });
-  }
+  }*/
+
+    constructor(private snackBar: MatSnackBar) {}
+
+    openGlassSnackbar() {
+      this.snackBar.open(' Notificação com Glassmorphism!', 'Fechar', {
+        duration: 4000,
+        horizontalPosition: 'right', // 'start' | 'center' | 'end' | 'left' | 'right'
+        verticalPosition: 'bottom', // 'top' | 'bottom'
+        panelClass: ['glass-snackbar'] // Aplica o estilo personalizado
+      });
+    }
 }

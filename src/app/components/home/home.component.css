@@ -10,6 +10,20 @@ header {
   height: 100%;
 }
 
+::ng-deep .glass-snackbar {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: rgb(206, 102, 102) !important;
+  font-weight: bold;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 250px;
+}
+
 #movies {
   justify-content: center;
   display: grid;
@@ -17,7 +31,6 @@ header {
   grid-template-rows: repeat(2, 200px);
   gap: 40px 20px;
   padding: 50px;
-
 }
 
 .images-block img {
@@ -124,35 +137,55 @@ footer {
   margin: 15px 0;
 }
 
+
+#button-container {
+  display: flex;
+  }
+
 #btnVote {
-  background: #007bff;
+  background: #334f6e;
   font-size: 16px;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 10px 15px;
-  justify-content: center;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+#btnClose {
+  background: #334f6e;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 #btnVote:hover {
   transform: scale(1.1);
 }
 
+#btnClose:hover {
+  transform: scale(1.1);
+}
+
 .button {
-  text-align: center; 
-  margin-bottom: 10px;
-}
-
-#votar{
-  text-align: center; 
-  margin-bottom: 10px;
-}
-
-#btnV{
   text-align: center;
   margin-bottom: 10px;
-  background: #007bff;
+}
+
+#votar {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#btnV {
+  text-align: center;
+  margin-bottom: 10px;
+  background: #334f6e;
   font-size: 16px;
   color: white;
   border: none;
@@ -161,17 +194,11 @@ footer {
   justify-items: center;
 }
 
-#btnV:hover{
+#btnV:hover {
   transform: scale(1.1);
 }
 
-#btnVote{
-  margin-bottom: 10px;
-  display: end;
-  align-content: end;
-  align-items: end;
-  margin: 60px 0;
-}
+
 
 #nameMovie {
   width: 40%;
@@ -200,3 +227,15 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
+#images-vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#images-vote img {
+  width: 150px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
